@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $pdo->beginTransaction();
             $orderNo = 'BB' . date('ymd') . random_int(1000, 9999);
-            $pdo->prepare('INSERT INTO orders (order_number, customer_name, phone, address, notes, total) VALUES (?,?,?,?,?,?)')
-                ->execute([$orderNo, $old['name'], $old['phone'], $old['address'], $old['notes'], $total]);
+            $pdo->prepare('INSERT INTO orders (user_id, order_number, customer_name, phone, address, notes, total) VALUES (?,?,?,?,?,?,?)')
+                ->execute([!empty($_SESSION['user_id']) ? (int) $_SESSION['user_id'] : null, $orderNo, $old['name'], $old['phone'], $old['address'], $old['notes'], $total]);
             $orderId = (int) $pdo->lastInsertId();
             $ins = $pdo->prepare('INSERT INTO order_items (order_id, product_id, product_name, price, quantity) VALUES (?,?,?,?,?)');
             foreach ($items as $it) {

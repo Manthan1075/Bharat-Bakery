@@ -52,9 +52,9 @@ $testimonials = [
       </div>
       <div class="col-lg-6">
         <div class="hero-art">
-          <img src="assets/images/cake.svg" alt="Chocolate cake" class="hero-main">
-          <img src="assets/images/cupcake.svg" alt="Cupcake" class="hero-side hero-side-1">
-          <img src="assets/images/bread.svg" alt="Fresh bread" class="hero-side hero-side-2">
+          <img src="assets/images/cake.jpeg" alt="Chocolate cake" class="hero-main">
+          <img src="assets/images/cupcake.jpg" alt="Cupcake" class="hero-side hero-side-1">
+          <img src="assets/images/bread.jpeg" alt="Fresh bread" class="hero-side hero-side-2">
         </div>
       </div>
     </div>
@@ -74,14 +74,18 @@ $testimonials = [
           <a class="category-card"
              href="products.php?category=<?= (int) $c['id'] ?>">
 
-            <span class="cat-icon">
-              <img
-                src="assets/images/<?= e($c['icon']) ?>"
-                alt="<?= e($c['name']) ?>"
-                class="category-icon"
-                loading="lazy"
-              >
-            </span>
+           
+
+<span class="cat-icon">
+    <img
+        src="assets/images/icons/<?= e($c['icon']) ?>"
+        alt="<?= e($c['name']) ?>"
+        class="category-icon"
+        loading="lazy"
+    >
+</span>
+
+
 
             <strong><?= e($c['name']) ?></strong>
             <small><?= e($c['description']) ?></small>
